@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indian Space Research Organisation | ISRO Science</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Outfit (Display Headlines) & Inter (Editorial Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'isro-blue': '#0C439A',         /* Deep Royal Blue */
+              'isro-blue-dark': '#06265B',    /* Dark Navy Blue */
+              'isro-orange': '#F89308',       /* Vibrant Orange */
+              'isro-cream': '#FAF8EC',        /* Off-white / Cream Canvas */
+              'isro-charcoal': '#242526',     /* Dark Charcoal Text/Heading */
+              'isro-dark': '#070A12',         /* True Dark Frame */
+              'isro-steel': '#85A2C8',        /* Muted Steel Blue */
+              'isro-taupe': '#7A7874',        /* Taupe Grey */
+              'isro-border': '#E2DFCE'        /* Border Accent */
+            },
+            fontFamily: {
+              display: ['Outfit', 'sans-serif'],
+              body: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#070A12] text-[#242526] antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

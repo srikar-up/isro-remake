@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap');
+
+body {
+  background-color: #070A12;
+  font-family: 'Inter', sans-serif;
+  color: #1C1D1F;
+  overflow-x: hidden;
+}
+
+/* Solid White Display Header for ISRO SCIENCE */
+.text-outline-white {
+  color: #FFFFFF !important;
+  opacity: 0.9;
+}
+
+.text-outline-blue {
+  color: #0C439A !important;
+}
+
+/* Architectural Wireframe Crosshair Background */
+.wireframe-grid {
+  background-image:
+    radial-gradient(circle, #85A2C8 1px, transparent 1px),
+    linear-gradient(to right, rgba(133, 162, 200, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(133, 162, 200, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+}
+
+/* Editorial Block Text Overlay */
+.block-text-highlight {
+  background-color: #0C439A;
+  color: #FAF8EC;
+  padding: 2px 10px;
+  display: inline-block;
+  line-height: 1.15;
+  border-radius: 2px;
+}
+
+/* Dyslexia Font */
+.accessibility-dyslexia {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070A12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0C439A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F89308;
+}
+
+/* Swiss Card Hover */
+.swiss-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.swiss-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Modal Backdrop Blur */
+.glass-modal {
+  background: rgba(7, 10, 18, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Rotating Satellite Animation */
+@keyframes spin-orbit {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-orbit {
+  animation: spin-orbit 20s linear infinite;
+}
+
+/* Radar Pulse Animation */
+@keyframes radar-ping {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-radar-ping {
+  animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Floating Earth Animation */
+@keyframes float-earth {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-float-earth {
+  animation: float-earth 8s ease-in-out infinite;
+}
