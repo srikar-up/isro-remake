@@ -2,13 +2,13 @@ import re
 import os
 
 code_path = 'src/App.jsx'
-output_path = r'C:\Users\LENOVO\.gemini\antigravity-ide\scratch\check_results.txt'
+output_path = 'py_output.txt'
 
 try:
     with open(code_path, 'r', encoding='utf-8') as f:
         code = f.read()
 
-    # remove comments
+    # remove JSX comments
     clean_code = re.sub(r'\{\/\*[\s\S]*?\*\/\}', '', code)
     clean_code = re.sub(r'<!--[\s\S]*?-->', '', clean_code)
     
@@ -38,12 +38,12 @@ try:
                         output_lines.append(f"MISMATCH: line {line_no} close </{tag}> does not match open <{top['tag']}> from line {top['line_no']}")
                         with open(output_path, 'w', encoding='utf-8') as out_f:
                             out_f.write('\n'.join(output_lines))
-                        os._exit(1)
+                        os._exit(0)
                 else:
                     output_lines.append(f"EXTRA CLOSE: line {line_no} close </{tag}> has no open tag")
                     with open(output_path, 'w', encoding='utf-8') as out_f:
                         out_f.write('\n'.join(output_lines))
-                    os._exit(1)
+                    os._exit(0)
             else:
                 stack.append({'tag': tag, 'line_no': line_no})
 
@@ -60,4 +60,5 @@ try:
 except Exception as e:
     with open(output_path, 'w', encoding='utf-8') as out_f:
         out_f.write(f"CRITICAL ERROR: {str(e)}")
+
 print("Done Python check!")

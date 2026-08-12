@@ -321,6 +321,7 @@ export default function App() {
             </div>
           </div>
         </div>
+      </div>
 
       {/* Floating Bottom-Right Quick Action Menu (No Black Container Box, Sharp Royal Blue Buttons, Pure White Text & Icons, No Yellow) */}
       <div className="fixed right-5 bottom-5 z-50 flex flex-col items-end">
@@ -1034,7 +1035,6 @@ export default function App() {
 
         </div>
       </div>
-    </div>
 
       {/* MODAL: MISSION DETAILS */}
       {activeMissionKey && missionData[activeMissionKey] && (
