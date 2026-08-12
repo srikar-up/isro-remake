@@ -15,6 +15,7 @@ export default function App() {
   // Navigation Dropdown & Active Filter States
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [directoryFilter, setDirectoryFilter] = useState('all'); // 'all', 'centres', 'autonomous', 'enterprises'
+  const [selectedModel, setSelectedModel] = useState('pslv');
 
   // Modals & Interactive Popovers
   const [activeMissionKey, setActiveMissionKey] = useState(null);
@@ -228,6 +229,115 @@ export default function App() {
       vehicle: "LVM3 Launch Vehicle",
       orbit: "Elliptical Venusian Orbit",
       status: "PLANNING PHASE"
+    }
+  };
+
+  // Launch Vehicle Models Data (Timeline / Models Section)
+  const vehicleModelsData = {
+    pslv: {
+      code: 'PSLV',
+      name: 'Polar Satellite Launch Vehicle',
+      tagline: 'The Reliable Workhorse of ISRO',
+      firstLaunch: 'October 20, 1994',
+      stages: '4 Stages (Solid - Liquid - Solid - Liquid)',
+      height: '44 m',
+      liftOffMass: '320 tonnes',
+      payload: '1,750 kg to Sun-Synchronous Orbit (SSO)',
+      status: 'OPERATIONAL • 59+ FLIGHTS',
+      desc: 'PSLV is the third generation launch vehicle of India. It is the first Indian launch vehicle to be equipped with liquid stages. PSLV has earned the title "Workhorse of ISRO" by consistently delivering various Indian and international payloads to polar and planetary orbits.',
+      milestones: [
+        'Chandrayaan-1 Lunar Mission (2008)',
+        'Mars Orbiter Mission / Mangalyaan (2013)',
+        'Record 104 Satellites in a single flight (PSLV-C37, 2017)',
+        'Aditya-L1 Solar Observatory (2023)'
+      ]
+    },
+    gslv: {
+      code: 'GSLV',
+      name: 'Geosynchronous Satellite Launch Vehicle',
+      tagline: 'Communication & Geosynchronous Payload Carrier',
+      firstLaunch: 'April 18, 2001',
+      stages: '3 Stages (Solid Core + Liquid Strapons - Liquid - Cryogenic CUS)',
+      height: '51.7 m',
+      liftOffMass: '414 tonnes',
+      payload: '2,250 kg to Geosynchronous Transfer Orbit (GTO)',
+      status: 'OPERATIONAL • CRYOGENIC CUS',
+      desc: 'GSLV is a three-stage launch vehicle with solid booster, liquid second stage, and an indigenous Cryogenic Upper Stage (CUS). It is primarily designed to launch heavy communication and meteorological satellites into GTO.',
+      milestones: [
+        'GSAT Communication Satellite Constellation',
+        'GISAT-1 Earth Observation Satellite',
+        'INSAT-3DS Climate & Weather Monitoring (2024)',
+        'NVS-01 NaVIC Second Generation Navigation Satellite'
+      ]
+    },
+    lvm3: {
+      code: 'LVM3',
+      name: 'Launch Vehicle Mark-3 (GSLV Mk III)',
+      tagline: "India's Heaviest & Most Powerful Rocket",
+      firstLaunch: 'December 18, 2014 (CARE Flight)',
+      stages: '3 Stages (2 x S200 Solid Boosters - L110 Liquid Core - C25 Cryogenic)',
+      height: '43.5 m',
+      liftOffMass: '640 tonnes',
+      payload: '4,000 kg to GTO / 10,000 kg to LEO',
+      status: 'HUMAN-RATED (HLVM3) • 100% SUCCESS',
+      desc: 'LVM3 is ISRO\'s heaviest launch vehicle, designed to carry 4-tonne class satellites into GTO or human crew modules to Low Earth Orbit. It features twin massive S200 solid rocket boosters and high-thrust C25 cryogenic stage.',
+      milestones: [
+        'Chandrayaan-2 Lunar Orbiter & Lander (2019)',
+        'Chandrayaan-3 Lunar South Pole Soft Landing (2023)',
+        'OneWeb India-1 & India-2 (72 Commercial Satellites Launched)',
+        'Gaganyaan Human Spaceflight Qualification Flights'
+      ]
+    },
+    sslv: {
+      code: 'SSLV',
+      name: 'Small Satellite Launch Vehicle',
+      tagline: 'Rapid-Turnaround Low-Cost Small Sat Launcher',
+      firstLaunch: 'August 7, 2022',
+      stages: '3 Solid Stages + Velocity Trimming Module (VTM)',
+      height: '34 m',
+      liftOffMass: '120 tonnes',
+      payload: '500 kg to 500 km Low Earth Orbit (LEO)',
+      status: 'OPERATIONAL • COMMERCIAL DEMAND',
+      desc: 'SSLV was developed to meet the growing commercial demand for launching small micro/nano satellites. It requires minimal launch infrastructure, reduced team size, and can be integrated within just 7 days.',
+      milestones: [
+        'EOS-07 & AzaadiSAT Launch (SSLV-D2)',
+        'Demonstrated 7-day launch integration capability',
+        'Commercial constellation deployment platform'
+      ]
+    },
+    rlv: {
+      code: 'RLV-TD',
+      name: 'Reusable Launch Vehicle Tech Demonstrator',
+      tagline: 'Winged Two-Stage-To-Orbit Spaceplane Concept',
+      firstLaunch: 'May 23, 2016 (HEX-01)',
+      stages: 'Winged Body Spaceplane + HS9 Solid Booster',
+      height: '6.5 m (Fuselage length)',
+      liftOffMass: '1.75 tonnes (Spaceplane)',
+      payload: 'Reusable Payload Return & Gliding Landing',
+      status: 'AUTONOMOUS LANDING TEST QUALIFIED',
+      desc: 'RLV-TD is a technology demonstrator toward a fully reusable spaceplane. ISRO successfully accomplished high-speed hypersonic re-entry (HEX) and autonomous pin-point runway landing tests (LEX-01, LEX-02, LEX-03) at ATR Chitradurga.',
+      milestones: [
+        'HEX-01 Hypersonic Flight Experiment (2016)',
+        'LEX-01 Autonomous Runway Landing from Helicopter (2023)',
+        'LEX-02 & LEX-03 Autonomous Precision Landings (2024)'
+      ]
+    },
+    nglv: {
+      code: 'NGLV',
+      name: 'Next Generation Launch Vehicle (Soorya)',
+      tagline: 'Future Heavy-Lift & Reusable Station Carrier',
+      firstLaunch: 'Targeted 2030',
+      stages: 'Modular 3-Stage Semi-Cryogenic (Liquid Oxygen + Kerosene / Methane)',
+      height: '75+ m',
+      liftOffMass: '800+ tonnes',
+      payload: '30,000 kg to LEO / Reusable 1st Stage',
+      status: 'DEVELOPMENT & ENGINE HOT TESTS ACTIVE',
+      desc: 'NGLV (Soorya) is ISRO\'s upcoming modular launcher equipped with eco-friendly semi-cryogenic propulsion. Designed with a reusable first stage, NGLV will construct the Bharatiya Antariksh Station (BAS) and power deep-space crewed missions.',
+      milestones: [
+        'Hot Qualification Tests of 2000 kN Semi-Cryo Engine at IPRC',
+        'Primary launch vehicle for Bharatiya Antariksh Station (BAS) modules',
+        'Designed for low-cost payload delivery to LEO & Lunar Orbit'
+      ]
     }
   };
 
@@ -945,42 +1055,157 @@ export default function App() {
             </div>
           </section>
 
-          {/* EARTH PNG DISPLAY SECTION ABOVE FOOTER */}
-          <div className="relative mt-24 sm:mt-32 md:mt-40">
-            {/* Centered Earth graphic emerging half-way above the dark footer border */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 z-20 pointer-events-none flex flex-col items-center">
-              <div className="relative flex flex-col items-center">
-                {/* Glowing Atmospheric Glow */}
-                <div className="absolute -inset-6 rounded-full bg-cyan-500/20 blur-3xl animate-pulse"></div>
-
-                {/* Earth PNG Image */}
-                <img
-                  src="/earth.png"
-                  alt="Planet Earth"
-                  onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/1200px-The_Earth_seen_from_Apollo_17.jpg";
-                  }}
-                  className="w-56 h-56 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain relative z-10 drop-shadow-[0_20px_40px_rgba(0,0,0,0.7)] animate-float-earth"
-                />
-
-                {/* Aesthetic Floating Badge / Telemetry Label */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-isro-dark/90 text-cyan-300 border border-cyan-500/40 px-4 py-1 rounded-full text-[10px] sm:text-[11px] font-mono tracking-widest uppercase flex items-center gap-2 shadow-2xl backdrop-blur-md z-20 whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                  <span>ISRO • EARTH OBSERVATION SYSTEM</span>
+          {/* SECTION: ISRO TIMELINE & LAUNCH VEHICLE MODELS */}
+          <section id="models" className="p-6 sm:p-12 border-b border-isro-border bg-isro-cream relative overflow-hidden">
+            <div className="max-w-7xl mx-auto">
+              
+              {/* Header with Monospace Label & Vertical Blue Line Divider */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-1.5 h-12 bg-isro-blue rounded-full hidden sm:block"></div>
+                <div>
+                  <div className="font-mono text-xs font-bold text-isro-blue uppercase tracking-wider flex items-center gap-2">
+                    <span>isro timeline/MODELS</span>
+                    <span className="w-2 h-2 rounded-full bg-isro-orange animate-pulse"></span>
+                  </div>
+                  <h2 className="font-display font-black text-2xl sm:text-4xl text-isro-blue uppercase tracking-tight">
+                    ISRO LAUNCH VEHICLES & ROCKET EVOLUTION
+                  </h2>
                 </div>
               </div>
-            </div>
 
-            {/* FOOTER SECTION WITH OFFICIAL ADDRESS & POLICIES */}
-            <footer id="about" className="bg-isro-charcoal text-white p-6 sm:p-12 pt-28 sm:pt-36 md:pt-40 border-t border-isro-border relative z-10">
+              {/* Grid Layout: Left Earth Circular Frame & Model Selector Pills | Right Vertical Divider & Spec Details */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                {/* Left Side (Col-5): Circular Earth Frame with Model Filter Pills */}
+                <div className="lg:col-span-5 flex flex-col items-center">
+                  
+                  {/* Circular Soft Blue Backdrop Frame with Earth Image */}
+                  <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-[#E3EFFE] border-2 border-sky-200 p-4 shadow-2xl flex items-center justify-center relative group transition transform hover:scale-105 duration-500">
+                    <div className="absolute inset-0 rounded-full bg-blue-400/15 blur-xl animate-pulse"></div>
+                    <img
+                      src="/earth.png"
+                      alt="Planet Earth ISRO Telemetry"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1000&auto=format&fit=crop';
+                      }}
+                      className="w-full h-full object-contain relative z-10 drop-shadow-[0_15px_30px_rgba(12,67,154,0.3)]"
+                    />
+                  </div>
+
+                  {/* Rocket Vehicle Selector Pills (Matching reference image) */}
+                  <div className="flex flex-wrap justify-center gap-2 mt-6">
+                    {Object.keys(vehicleModelsData).map((key) => {
+                      const model = vehicleModelsData[key];
+                      const isSelected = selectedModel === key;
+                      return (
+                        <button
+                          key={key}
+                          onClick={() => setSelectedModel(key)}
+                          className={`px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
+                            isSelected
+                              ? 'bg-isro-blue text-white shadow-md border border-isro-blue-dark scale-105'
+                              : 'bg-white text-isro-blue hover:bg-slate-100 border border-isro-border'
+                          }`}
+                        >
+                          {model.code}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Vertical Blue Divider (Desktop) */}
+                <div className="hidden lg:flex lg:col-span-1 justify-center h-full min-h-[320px]">
+                  <div className="w-1 bg-isro-blue rounded-full h-full"></div>
+                </div>
+
+                {/* Right Side (Col-6): Dynamic Spec Card */}
+                <div className="lg:col-span-6 bg-white border border-isro-border p-6 sm:p-8 rounded-xl shadow-lg relative">
+                  <div className="flex justify-between items-start mb-4 border-b border-isro-border pb-4">
+                    <div>
+                      <span className="text-[10px] font-mono font-bold text-isro-steel uppercase tracking-widest block">
+                        TELEMETRY & MODEL SPECIFICATION
+                      </span>
+                      <h3 className="font-display font-black text-2xl sm:text-3xl text-isro-blue uppercase">
+                        {vehicleModelsData[selectedModel].code}
+                      </h3>
+                      <p className="text-xs font-mono font-bold text-isro-orange uppercase mt-0.5">
+                        {vehicleModelsData[selectedModel].name}
+                      </p>
+                    </div>
+
+                    <span className="bg-isro-cream border border-isro-border text-isro-blue font-mono font-bold text-[10px] px-3 py-1 rounded uppercase shadow-sm">
+                      {vehicleModelsData[selectedModel].status}
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-isro-charcoal leading-relaxed mb-6 font-body">
+                    {vehicleModelsData[selectedModel].desc}
+                  </p>
+
+                  {/* Technical Parameters Grid */}
+                  <div className="grid grid-cols-2 gap-3 text-xs font-mono mb-6">
+                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
+                      <span className="text-[10px] text-isro-steel block font-bold">STAGES CONFIGURATION</span>
+                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].stages}</span>
+                    </div>
+
+                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
+                      <span className="text-[10px] text-isro-steel block font-bold">PAYLOAD CAPACITY</span>
+                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].payload}</span>
+                    </div>
+
+                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
+                      <span className="text-[10px] text-isro-steel block font-bold">HEIGHT / LIFT-OFF MASS</span>
+                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].height} • {vehicleModelsData[selectedModel].liftOffMass}</span>
+                    </div>
+
+                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
+                      <span className="text-[10px] text-isro-steel block font-bold">FIRST FLIGHT</span>
+                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].firstLaunch}</span>
+                    </div>
+                  </div>
+
+                  {/* Key Missions */}
+                  <div>
+                    <h4 className="text-[10px] font-mono font-bold text-isro-steel uppercase tracking-wider mb-2">
+                      KEY MISSIONS & MILESTONES:
+                    </h4>
+                    <ul className="space-y-1.5 text-xs text-isro-charcoal font-mono">
+                      {vehicleModelsData[selectedModel].milestones.map((m, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <i className="fa-solid fa-square-check text-isro-orange text-xs"></i>
+                          <span>{m}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* FOOTER SECTION WITH OFFICIAL ADDRESS & POLICIES */}
+          <footer id="about" className="bg-isro-charcoal text-white p-6 sm:p-12 border-t border-isro-border relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-white/10">
 
               {/* Col 1 */}
               <div>
                 <div className="flex items-center space-x-2 mb-3">
-                  <img src="https://www.isro.gov.in/media_isro/image/favicon.png.webp" alt="ISRO Badge" className="w-6 h-6" />
-                  <span className="bg-white text-isro-blue font-display font-black text-xl px-2.5 py-0.5 rounded">ISRO HQ</span>
+                  <img
+                    src="https://www.isro.gov.in/media_isro/image/favicon.png.webp"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "https://www.isro.gov.in/media_isro/image/isro_logo.png";
+                    }}
+                    alt="ISRO Emblem Logo"
+                    className="w-6 h-6 object-contain"
+                  />
+                  <span className="bg-white text-isro-blue font-display font-black text-xl px-2.5 py-0.5 rounded shadow-sm">ISRO HQ</span>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed mb-3">
                   Indian Space Research Organisation<br />
@@ -1015,10 +1240,21 @@ export default function App() {
               <div className="text-xs">
                 <h4 className="font-display font-bold text-sm text-isro-steel uppercase mb-3">Connect With Us</h4>
                 <div className="flex space-x-3 text-lg mb-4">
-                  <a href="https://twitter.com/isro" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue"><i className="fa-brands fa-x-twitter"></i></a>
-                  <a href="https://www.facebook.com/ISRO" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue"><i className="fa-brands fa-facebook-f"></i></a>
-                  <a href="https://www.youtube.com/channel/UCw5hEVOTfz_AfzsNFWyNlNg" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue"><i className="fa-brands fa-youtube"></i></a>
-                  <a href="https://www.instagram.com/isro.dos" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue"><i className="fa-brands fa-instagram"></i></a>
+                  {/* X / Twitter Vector Icon */}
+                  <a
+                    href="https://twitter.com/isro"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue text-white transition shadow-sm"
+                    title="X (Twitter)"
+                  >
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.facebook.com/ISRO" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue text-white transition shadow-sm" title="Facebook"><i className="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.youtube.com/channel/UCw5hEVOTfz_AfzsNFWyNlNg" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue text-white transition shadow-sm" title="YouTube"><i className="fa-brands fa-youtube"></i></a>
+                  <a href="https://www.instagram.com/isro.dos" target="_blank" rel="noreferrer" className="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-isro-blue text-white transition shadow-sm" title="Instagram"><i className="fa-brands fa-instagram"></i></a>
                 </div>
                 <p className="text-[10px] text-slate-400 font-mono">
                   Designed with Swiss Graphic & Editorial International Typographic Style.
