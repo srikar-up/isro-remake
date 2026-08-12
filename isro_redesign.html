@@ -23,11 +23,11 @@
           colors: {
             'isro-blue': '#0C439A',
             'isro-blue-dark': '#06265B',
-            'isro-cream': '#FAF8EC',
+            'isro-cream': '#FFFFFF',
             'isro-dark': '#070A12',
             'isro-charcoal': '#1C1D1F',
             'isro-steel': '#85A2C8',
-            'isro-border': '#E2DFCE',
+            'isro-border': '#E2E8F0',
             'isro-orange': '#F89308'
           },
           fontFamily: {
@@ -70,7 +70,7 @@
     /* Editorial Block Text Overlay */
     .block-text-highlight {
       background-color: #0C439A;
-      color: #FAF8EC;
+      color: #FFFFFF;
       padding: 0px 8px;
       display: inline-block;
       line-height: 1.15;
@@ -727,120 +727,6 @@
             <span class="text-[10px] font-mono text-isro-steel block font-bold">POLICY</span>
             <a href="javascript:void(0)" onclick="alert('Opening Indian Space Policy 2023 Document')" class="font-bold text-xs text-isro-blue hover:underline">Indian Space Policy</a>
           </div>
-        </div>
-      </section>
-
-      <!-- SECTION: ISRO LAUNCH VEHICLES & TIMELINE/MODELS -->
-      <section id="models" class="p-6 sm:p-12 border-b border-isro-border bg-isro-cream relative overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-          
-          <div class="flex items-center gap-4 mb-8">
-            <div class="w-1.5 h-12 bg-isro-blue rounded-full hidden sm:block"></div>
-            <div>
-              <div class="font-mono text-xs font-bold text-isro-blue uppercase tracking-wider flex items-center gap-2">
-                <span>isro timeline/MODELS</span>
-                <span class="w-2 h-2 rounded-full bg-isro-orange animate-pulse"></span>
-              </div>
-              <h2 class="font-display font-black text-2xl sm:text-4xl text-isro-blue uppercase tracking-tight">
-                ISRO LAUNCH VEHICLES & ROCKET EVOLUTION
-              </h2>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <!-- Left Side: Circular Earth Frame with Vehicle Pills -->
-            <div class="lg:col-span-5 flex flex-col items-center">
-              <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-[#E3EFFE] border-2 border-sky-200 p-4 shadow-2xl flex items-center justify-center relative group transition transform hover:scale-105 duration-500">
-                <div class="absolute inset-0 rounded-full bg-blue-400/15 blur-xl animate-pulse"></div>
-                <img
-                  src="earth.png"
-                  alt="Planet Earth ISRO Telemetry"
-                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1000&auto=format&fit=crop';"
-                  class="w-full h-full object-contain relative z-10 drop-shadow-[0_15px_30px_rgba(12,67,154,0.3)]"
-                />
-              </div>
-
-              <!-- Selector Pills matching reference image -->
-              <div class="flex flex-wrap justify-center gap-2 mt-6">
-                <span class="px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider bg-isro-blue text-white shadow-md border border-isro-blue-dark">PSLV</span>
-                <span class="px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider bg-white text-isro-blue border border-isro-border">GSLV</span>
-                <span class="px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider bg-white text-isro-blue border border-isro-border">SSLV</span>
-                <span class="px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider bg-white text-isro-blue border border-isro-border">LVM3</span>
-                <span class="px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider bg-white text-isro-blue border border-isro-border">RLV-TD</span>
-                <span class="px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider bg-white text-isro-blue border border-isro-border">NGLV</span>
-              </div>
-            </div>
-
-            <!-- Vertical Blue Divider Line -->
-            <div class="hidden lg:flex lg:col-span-1 justify-center h-full min-h-[320px]">
-              <div class="w-1 bg-isro-blue rounded-full h-full"></div>
-            </div>
-
-            <!-- Right Side: Model Specs & Telemetry -->
-            <div class="lg:col-span-6 bg-white border border-isro-border p-6 sm:p-8 rounded-xl shadow-lg relative">
-              <div class="flex justify-between items-start mb-4 border-b border-isro-border pb-4">
-                <div>
-                  <span class="text-[10px] font-mono font-bold text-isro-steel uppercase tracking-widest block">
-                    TELEMETRY & MODEL SPECIFICATION
-                  </span>
-                  <h3 class="font-display font-black text-2xl sm:text-3xl text-isro-blue uppercase">
-                    PSLV - POLAR SATELLITE LAUNCH VEHICLE
-                  </h3>
-                  <p class="text-xs font-mono font-bold text-isro-orange uppercase mt-0.5">
-                    The Reliable Workhorse of ISRO
-                  </p>
-                </div>
-                <span class="bg-isro-cream border border-isro-border text-isro-blue font-mono font-bold text-[10px] px-3 py-1 rounded uppercase shadow-sm">
-                  OPERATIONAL • 59+ FLIGHTS
-                </span>
-              </div>
-
-              <p class="text-xs text-isro-charcoal leading-relaxed mb-6 font-body">
-                PSLV is the third generation launch vehicle of India. It is the first Indian launch vehicle to be equipped with liquid stages. PSLV has earned the title "Workhorse of ISRO" by consistently delivering various Indian and international payloads to polar and planetary orbits.
-              </p>
-
-              <div class="grid grid-cols-2 gap-3 text-xs font-mono mb-6">
-                <div class="bg-isro-cream p-3 rounded border border-isro-border">
-                  <span class="text-[10px] text-isro-steel block font-bold">STAGES CONFIGURATION</span>
-                  <span class="font-bold text-isro-blue">4 Stages (Solid + Liquid)</span>
-                </div>
-                <div class="bg-isro-cream p-3 rounded border border-isro-border">
-                  <span class="text-[10px] text-isro-steel block font-bold">PAYLOAD CAPACITY</span>
-                  <span class="font-bold text-isro-blue">1,750 kg to SSO / 3,800 kg to LEO</span>
-                </div>
-                <div class="bg-isro-cream p-3 rounded border border-isro-border">
-                  <span class="text-[10px] text-isro-steel block font-bold">HEIGHT / LIFT-OFF MASS</span>
-                  <span class="font-bold text-isro-blue">44 m • 320 tonnes</span>
-                </div>
-                <div class="bg-isro-cream p-3 rounded border border-isro-border">
-                  <span class="text-[10px] text-isro-steel block font-bold">FIRST FLIGHT</span>
-                  <span class="font-bold text-isro-blue">October 20, 1994</span>
-                </div>
-              </div>
-
-              <div>
-                <h4 class="text-[10px] font-mono font-bold text-isro-steel uppercase tracking-wider mb-2">
-                  KEY MISSIONS & MILESTONES:
-                </h4>
-                <ul class="space-y-1.5 text-xs text-isro-charcoal font-mono">
-                  <li class="flex items-center gap-2">
-                    <i class="fa-solid fa-square-check text-isro-orange text-xs"></i>
-                    <span>Chandrayaan-1 Lunar Mission (2008)</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <i class="fa-solid fa-square-check text-isro-orange text-xs"></i>
-                    <span>Mars Orbiter Mission / Mangalyaan (2013)</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <i class="fa-solid fa-square-check text-isro-orange text-xs"></i>
-                    <span>Record 104 Satellites in a single flight (PSLV-C37, 2017)</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
         </div>
       </section>
 

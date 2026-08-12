@@ -366,7 +366,7 @@ export default function App() {
       {readingRuler && (
         <div
           id="reading-ruler"
-          className="fixed left-0 w-full h-8 bg-yellow-300/30 border-y-2 border-yellow-500 pointer-events-none z-50"
+          className="fixed left-0 w-full h-8 bg-sky-400/30 border-y-2 border-sky-500 pointer-events-none z-50"
           style={{ top: `${rulerTop}px` }}
         />
       )}
@@ -1052,140 +1052,6 @@ export default function App() {
                   </div>
                 </div>
               ))}
-            </div>
-          </section>
-
-          {/* SECTION: ISRO TIMELINE & LAUNCH VEHICLE MODELS */}
-          <section id="models" className="p-6 sm:p-12 border-b border-isro-border bg-isro-cream relative overflow-hidden">
-            <div className="max-w-7xl mx-auto">
-              
-              {/* Header with Monospace Label & Vertical Blue Line Divider */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-1.5 h-12 bg-isro-blue rounded-full hidden sm:block"></div>
-                <div>
-                  <div className="font-mono text-xs font-bold text-isro-blue uppercase tracking-wider flex items-center gap-2">
-                    <span>isro timeline/MODELS</span>
-                    <span className="w-2 h-2 rounded-full bg-isro-orange animate-pulse"></span>
-                  </div>
-                  <h2 className="font-display font-black text-2xl sm:text-4xl text-isro-blue uppercase tracking-tight">
-                    ISRO LAUNCH VEHICLES & ROCKET EVOLUTION
-                  </h2>
-                </div>
-              </div>
-
-              {/* Grid Layout: Left Earth Circular Frame & Model Selector Pills | Right Vertical Divider & Spec Details */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                {/* Left Side (Col-5): Circular Earth Frame with Model Filter Pills */}
-                <div className="lg:col-span-5 flex flex-col items-center">
-                  
-                  {/* Circular Soft Blue Backdrop Frame with Earth Image */}
-                  <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-[#E3EFFE] border-2 border-sky-200 p-4 shadow-2xl flex items-center justify-center relative group transition transform hover:scale-105 duration-500">
-                    <div className="absolute inset-0 rounded-full bg-blue-400/15 blur-xl animate-pulse"></div>
-                    <img
-                      src="/earth.png"
-                      alt="Planet Earth ISRO Telemetry"
-                      onError={(e) => {
-                        e.currentTarget.onerror = null;
-                        e.currentTarget.src = 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=1000&auto=format&fit=crop';
-                      }}
-                      className="w-full h-full object-contain relative z-10 drop-shadow-[0_15px_30px_rgba(12,67,154,0.3)]"
-                    />
-                  </div>
-
-                  {/* Rocket Vehicle Selector Pills (Matching reference image) */}
-                  <div className="flex flex-wrap justify-center gap-2 mt-6">
-                    {Object.keys(vehicleModelsData).map((key) => {
-                      const model = vehicleModelsData[key];
-                      const isSelected = selectedModel === key;
-                      return (
-                        <button
-                          key={key}
-                          onClick={() => setSelectedModel(key)}
-                          className={`px-3.5 py-1.5 rounded font-mono text-xs font-bold uppercase tracking-wider transition-all shadow-sm ${
-                            isSelected
-                              ? 'bg-isro-blue text-white shadow-md border border-isro-blue-dark scale-105'
-                              : 'bg-white text-isro-blue hover:bg-slate-100 border border-isro-border'
-                          }`}
-                        >
-                          {model.code}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Vertical Blue Divider (Desktop) */}
-                <div className="hidden lg:flex lg:col-span-1 justify-center h-full min-h-[320px]">
-                  <div className="w-1 bg-isro-blue rounded-full h-full"></div>
-                </div>
-
-                {/* Right Side (Col-6): Dynamic Spec Card */}
-                <div className="lg:col-span-6 bg-white border border-isro-border p-6 sm:p-8 rounded-xl shadow-lg relative">
-                  <div className="flex justify-between items-start mb-4 border-b border-isro-border pb-4">
-                    <div>
-                      <span className="text-[10px] font-mono font-bold text-isro-steel uppercase tracking-widest block">
-                        TELEMETRY & MODEL SPECIFICATION
-                      </span>
-                      <h3 className="font-display font-black text-2xl sm:text-3xl text-isro-blue uppercase">
-                        {vehicleModelsData[selectedModel].code}
-                      </h3>
-                      <p className="text-xs font-mono font-bold text-isro-orange uppercase mt-0.5">
-                        {vehicleModelsData[selectedModel].name}
-                      </p>
-                    </div>
-
-                    <span className="bg-isro-cream border border-isro-border text-isro-blue font-mono font-bold text-[10px] px-3 py-1 rounded uppercase shadow-sm">
-                      {vehicleModelsData[selectedModel].status}
-                    </span>
-                  </div>
-
-                  <p className="text-xs text-isro-charcoal leading-relaxed mb-6 font-body">
-                    {vehicleModelsData[selectedModel].desc}
-                  </p>
-
-                  {/* Technical Parameters Grid */}
-                  <div className="grid grid-cols-2 gap-3 text-xs font-mono mb-6">
-                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
-                      <span className="text-[10px] text-isro-steel block font-bold">STAGES CONFIGURATION</span>
-                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].stages}</span>
-                    </div>
-
-                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
-                      <span className="text-[10px] text-isro-steel block font-bold">PAYLOAD CAPACITY</span>
-                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].payload}</span>
-                    </div>
-
-                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
-                      <span className="text-[10px] text-isro-steel block font-bold">HEIGHT / LIFT-OFF MASS</span>
-                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].height} • {vehicleModelsData[selectedModel].liftOffMass}</span>
-                    </div>
-
-                    <div className="bg-isro-cream p-3 rounded border border-isro-border">
-                      <span className="text-[10px] text-isro-steel block font-bold">FIRST FLIGHT</span>
-                      <span className="font-bold text-isro-blue">{vehicleModelsData[selectedModel].firstLaunch}</span>
-                    </div>
-                  </div>
-
-                  {/* Key Missions */}
-                  <div>
-                    <h4 className="text-[10px] font-mono font-bold text-isro-steel uppercase tracking-wider mb-2">
-                      KEY MISSIONS & MILESTONES:
-                    </h4>
-                    <ul className="space-y-1.5 text-xs text-isro-charcoal font-mono">
-                      {vehicleModelsData[selectedModel].milestones.map((m, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <i className="fa-solid fa-square-check text-isro-orange text-xs"></i>
-                          <span>{m}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                </div>
-
-              </div>
-
             </div>
           </section>
 
