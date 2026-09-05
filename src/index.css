@@ -33,7 +33,7 @@ body {
   padding: 2px 10px;
   display: inline-block;
   line-height: 1.15;
-  border-radius: 2px;
+  border-radius: 0px;
 }
 
 /* Dyslexia Font */
@@ -52,7 +52,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #0C439A;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
