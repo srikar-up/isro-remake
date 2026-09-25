@@ -1,6 +1,6 @@
 # 🚀 ISRO SCIENCE — Editorial Portal Redesign
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/deploy-status)](https://isro-remake.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/deploy-status)]([https://isro-remake.netlify.app](https://isroremake.netlify.app/))
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.4.10-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
@@ -14,7 +14,7 @@
 
 | Platform | Deployment URL | Status |
 | :--- | :--- | :--- |
-| **Netlify Production** | [**isro-remake.netlify.app**](https://isro-remake.netlify.app) | ![Active](https://img.shields.io/badge/Status-Live-success?style=flat-square) |
+| **Netlify Production** | [**isro-remake.netlify.app**]([https://isro-remake.netlify.app](https://isroremake.netlify.app/)) | ![Active](https://img.shields.io/badge/Status-Live-success?style=flat-square) |
 | **GitHub Repository** | [**github.com/srikar-up/isro-remake**](https://github.com/srikar-up/isro-remake) | ![Open Source](https://img.shields.io/badge/Code-Public-blue?style=flat-square) |
 
 > 💡 *Note: If your custom Netlify subdomain differs, update the link above with your unique Netlify URL.*
